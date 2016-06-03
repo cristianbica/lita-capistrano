@@ -1,0 +1,7 @@
+en:
+  lita:
+    handlers:
+      capistrano:
+        help:
+          deploy_key: "deploy APPLICATION on ENVIRONMENT"
+          deploy_value: "deploys APPLICATION on ENVIRONMENT"
