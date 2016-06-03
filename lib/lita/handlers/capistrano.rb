@@ -4,13 +4,13 @@ module Lita
 
       config :ssh, type: Hash, required: true
 
-      route(/^(?<application>.+) is deployed in (?<environment>.+) using "(?<command>.*)"|” command$/,
+      route(/^(?<application>.+) is deployed in (?<environment>[^\s]+) using "(?<command>.*)("|”) command$/,
             :add_application, command: :true, help:
-            { 'APP is deployed in ENVIRONMENT using SHELL command' => 'sample is deployed in staging using "bundle exec cap staging deploy" command' })
+            { 'APP is deployed in ENVIRONMENT using "SHELL" command' => 'example.com is deployed in staging using "bundle exec cap staging deploy" command' })
 
       route(/^deploy (?<application>.+) (on|in) (?<environment>.*)$/,
             :deploy_application, command: :true, help:
-            { 'deploy application NAME on ENVIRONMENT' => 'deploy the given application' })
+            { 'deploy NAME on ENVIRONMENT' => 'deploy example.com in staging' })
 
       def deploy_application(response)
         name = response.match_data[:application]
