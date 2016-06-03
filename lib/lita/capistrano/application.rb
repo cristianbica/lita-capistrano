@@ -21,11 +21,11 @@ module Lita # :nodoc:
               return bot.reply('could not execute command') unless success
               ch.on_data do |_c, data|
                 Lita.logger.debug(data)
-                bot.reply data
+                bot.reply data.force_encoding("utf-8")
               end
               ch.on_extended_data do |_c, _type, data|
                 Lita.logger.error(data)
-                bot.reply data
+                bot.reply data.force_encoding("utf-8")
               end
             end
           end.wait
