@@ -5,7 +5,7 @@ Lita.load_locales Dir[File.expand_path(
 
 require "lita/handlers/capistrano"
 
-Lita::Handlers::Ai.template_root File.expand_path(
+Lita::Handlers::Capistrano.template_root File.expand_path(
   File.join("..", "..", "templates"),
  __FILE__
 )
